@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>实时时间</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #time {
+      font-size: 64px;
+      font-weight: bold;
+      color: #333;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    #time-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div id="time-container">
+    <div id="time"></div>
+  </div>
+  <script>
+    function updateTime() {
+      var now = new Date();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+      var time = hours + ":" + minutes + ":" + seconds;
+      document.getElementById("time").innerHTML = time;
+    }
+    setInterval(updateTime, 1000);
+  </script>
+</body>
+</html>
