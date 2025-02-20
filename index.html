@@ -1,40 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>实时时钟</title>
-<style>
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-  }
-  #clock {
-    font-size: 48px; /* 增大字体大小 */
-    font-weight: bold;
-    color: #333;
-  }
-</style>
-<script>
-function updateTime() {
-    var now = new Date(); // 获取当前时间
-    var hours = now.getHours(); // 小时
-    var minutes = now.getMinutes(); // 分钟
-    var seconds = now.getSeconds(); // 秒数
-    var formattedTime = hours + ':' +
-                        (minutes < 10 ? '0' : '') + minutes + ':' +
-                        (seconds < 10 ? '0' : '') + seconds;
-    document.getElementById('clock').textContent = formattedTime;
-}
-setInterval(updateTime, 1000); // 每1000毫秒（1秒）更新时间
-</script>
+  <title>实时时间</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #time {
+      font-size: 64px;
+      font-weight: bold;
+      color: #333;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    #time-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
-<body onload="updateTime()">
-<div id="clock"></div> <!-- 时间显示的位置 -->
+<body>
+  <div id="time-container">
+    <div id="time"></div>
+  </div>
+  <script>
+    function updateTime() {
+      var now = new Date();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+      var time = hours + ":" + minutes + ":" + seconds;
+      document.getElementById("time").innerHTML = time;
+    }
+    setInterval(updateTime, 1000);
+  </script>
 </body>
 </html>
